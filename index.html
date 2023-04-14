@@ -8,8 +8,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Minigpt-4</title>
 
+  <style>
+      /* Set the size of the images */
+      .slideshow {
+        width: 500px;
+        height: 400px;
+        position: relative;
+        overflow: hidden;
+      }
+      /* Hide all images by default */
+      .slideshow img {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      /* Show the first image by default */
+      .slideshow img:first-child {
+        display: block;
+      }
+      /* Style the arrow buttons */
+      .slideshow .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2em;
+        cursor: pointer;
+        color: white;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 0.5em;
+        border-radius: 50%;
+      }
+      .slideshow .arrow.left {
+        left: 1em;
+      }
+      .slideshow .arrow.right {
+        right: 1em;
+      }
+    </style>
+
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+ <!--  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -20,7 +62,39 @@
     gtag('js', new Date());
 
     gtag('config', 'G-PYVRSFMDRL');
-  </script>
+  </script> -->
+
+  <script>
+      // Set the slideshow duration
+      var slideshowDuration = 4000;
+
+      // Get all the images in the slideshow
+      var images = document.querySelectorAll('.slideshow img');
+
+      // Set the index of the current image
+      var currentImageIndex = 0;
+
+      // Display the next image in the slideshow
+      function nextImage() {
+        images[currentImageIndex].style.display = 'none';
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        images[currentImageIndex].style.display = 'block';
+      }
+
+      // Display the previous image in the slideshow
+      function previousImage() {
+        images[currentImageIndex].style.display = 'none';
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        images[currentImageIndex].style.display = 'block';
+      }
+
+      // Start the slideshow
+      setInterval(nextImage, slideshowDuration);
+
+      // Add event listeners to the arrow buttons
+      document.querySelector('.slideshow .arrow.left').addEventListener('click', previousImage);
+      document.querySelector('.slideshow .arrow.right').addEventListener('click', nextImage);
+    </script>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -56,14 +130,17 @@
                 </a>,                
             </span>
             <span class="author-block">
-              <a href="https://zdou0830.github.io/" style="color:#F2A900;font-weight:normal;">Zi-Yi Dou<sup>*</sup></a>,</span>
+              <a href="https://zdou0830.github.io/" style="color:#F2A900;font-weight:normal;">Jun Chen<sup>*</sup></a>,</span>
             <span class="author-block">
-              <a href="https://jwyang.github.io/" style="color:#00A4EF;font-weight:normal;">Jianwei Yang<sup>*&#x2691;</sup></a>,
+              <a href="https://jwyang.github.io/" style="color:#00A4EF;font-weight:normal;">Xiaoqian Shen</a>,
             </span>
             <span class="author-block">
-              <a href="https://zhegan27.github.io/" style="color:#008AD7;font-weight:normal;">Zhe Gan</a>,
+              <a href="https://lx709.github.io/" style="color:#008AD7;font-weight:normal;">Xiang Li</a>,
             </span>
             <span class="author-block">
+              <a href="https://zhegan27.github.io/" style="color:#008AD7;font-weight:normal;">Mohamed Elhoseiny</a>,
+            </span>
+            <!-- <span class="author-block">
               <a href="https://www.microsoft.com/en-us/research/people/linjli/" style="color:#008AD7;font-weight:normal;">Linjie Li</a>,
             </span>
             <span class="author-block">
@@ -92,27 +169,27 @@
             </span>                                                
             <span class="author-block">
               <a href="https://www.microsoft.com/en-us/research/people/jfgao/" style="color:#00A4EF;font-weight:normal;">Jianfeng Gao<sup>&#x2628;</sup></a>
-            </span>
+            </span> -->
           </div>
 
           <br>
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><b style="color:#f68946; font-weight:normal">&#x25B6 </b> University of Wisconsin-Madison; </b></span>
-            <span class="author-block"><b style="color:#F2A900; font-weight:normal">&#x25B6 </b>UCLA; </span>
-            <span class="author-block"><b style="color:#00A4EF; font-weight:normal">&#x25B6 </b>Microsoft Research, Redmond; </span>
-            <span class="author-block"><b style="color:#008AD7; font-weight:normal">&#x25B6 </b>Microsoft Cloud & AI </span>
+            <span class="author-block"><b style="color:#f68946; font-weight:normal">&#x25B6 </b> King Abdullah University of Science and Technology </span>
+            <!-- <span class="author-block"><b style="color:#F2A900; font-weight:normal">&#x25B6 </b>UCLA; </span> -->
+            <!-- <span class="author-block"><b style="color:#00A4EF; font-weight:normal">&#x25B6 </b>Microsoft Research, Redmond; </span> -->
+            <!-- <span class="author-block"><b style="color:#008AD7; font-weight:normal">&#x25B6 </b>Microsoft Cloud & AI </span> -->
           </div>
 
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>*</sup>Equal Technical Contribution, </span>
-            <span class="author-block"><sup>&#x2628;</sup>Equal Advisory Contribution, </span>
-            <span class="author-block"><sup>&#x2691;</sup>Project Lead </span>
+            <!-- <span class="author-block"><sup>&#x2628;</sup>Equal Advisory Contribution, </span> -->
+            <!-- <span class="author-block"><sup>&#x2691;</sup>Project Lead </span> -->
           </div>
 
           <br>
-          <div class="is-size-5 publication-authors">
+         <!--  <div class="is-size-5 publication-authors">
             <span class="author-block"><b style="color:#e08ba0; font-weight:normal"> <b>In CVPR2023</b> </b></span>
-          </div>
+          </div> -->
 
 
           <div class="column has-text-centered">
@@ -136,7 +213,7 @@
                   </a>
               </span>
 
-              <span class="link-block">
+<!--               <span class="link-block">
                 <a href="https://github.com/microsoft/X-Decoder/tree/xgpt"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -144,9 +221,9 @@
                   </span>
                   <span>X-GPT</span>
                   </a>
-              </span>
+              </span> -->
 
-              <span class="link-block">
+<!--               <span class="link-block">
                 <a href="https://huggingface.co/spaces/xdecoder/Demo"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -154,9 +231,9 @@
                   </span>
                   <span>All-in-One Demo</span>
                   </a>
-              </span>
+              </span> -->
 
-              <span class="link-block">
+             <!--  <span class="link-block">
                 <a href="https://huggingface.co/spaces/xdecoder/Instruct-X-Decoder"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -174,7 +251,7 @@
                   </span>
                   <span>Challenge</span>
                   </a>
-              </span>
+              </span> -->
               
               <span class="link-block">
                 <a href="https://youtu.be/wYp6vmyolqE"
@@ -240,7 +317,7 @@
     </div>
 
     <!--/ Demo. -->
-    <br>
+    <!-- <br>
     <br>
 
     <div class="columns is-centered has-text-centered">
@@ -271,7 +348,7 @@
         <p style="font-family:Times New Roman"><b>Instruct-X-Decoder: Object-centric instructional image editing</b>
       </h1>                 
       </div>
-    </div>
+    </div> -->
 
     <!--/ Paper video. -->
     <br>
@@ -316,7 +393,7 @@
     </div>
     <br>
     <br>    
-    <!--/ Paper video. -->          
+    <!--/ Paper video. -->
   </div>
 </section>
 
@@ -331,27 +408,15 @@
   <!--/ Results. -->    
 <div class="container is-max-desktop">
 
-  <!-- Generic Segmentation. -->
-  <div class="columns is-centered">
-    <div class="column is-full-width">
-      <h2 class="title is-4">Zero-Shot Segmentation</h2>
-      <img id="teaser" width="120%" src="images/bar_chart.png">
-      <h1>
-        <p style="font-family:Times New Roman"><b>Chart 1. Left: Zero-shot Segmentation Result Compared with SoTA; Right: Finetuned Segmentation Result Compared with SoTA.</b>
-      </h1>                 
-    </div>
+
+<div class="slideshow">
+      <img src="images/bar_chart.png">
+      <img src="images/xdecoder-teaser.png">
+      <img src="images/x-decoder-overall.png">
+      <div class="arrow left">&#8249;</div>
+      <div class="arrow right">&#8250;</div>
 </div>
 
-<div class="container is-max-desktop">
-
-<div class="column is-full-width">
-  <h2 class="title is-4">Segmentation In the Wild</h2>
-  <img id="teaser" width="120%" src="images/zero-shot-seginw.png">
-  <h1>
-    <p style="font-family:Times New Roman"><b>Chart 2. Zero-shot instance segmentation performance on SeginW benchmark.</b>
-  </h1>                 
-</div>
-</div>
 
 <!-- <section class="section">
   <div class="columns is-centered has-text-centered">
@@ -384,110 +449,6 @@
 </div> -->
 </div>
 
-<section class="section">
-    <!-- Results. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-six-fifths">
-        <h2 class="title is-3">Visualizations</h2>      
-        </div>
-      </div>
-    </div>
-    <!--/ Results. -->    
-  <div class="container is-max-desktop">
-
-    <!-- Generic Segmentation. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-4">Zero-Shot Segmentation</h2>
-        <!-- <h1><b>Zero-Shot Segmentation</b></h1> -->
-        <img id="teaser" width="120%" src="images/zero-shot-generic-image-segmentation.png">
-        <h1>
-          <p style="font-family:Times New Roman"><b>Figure 4. Zero-shot semantic segmentation with pretrained X-Decoder on 10 settings of 7 datasets.</b>
-        </h1>                       
-      </div>
-    </div>
-    <!--/ Generic Segmentation. -->
-
-    <!-- Video Segmentation. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-4">Zero-shot Segmentation for Videos</h2>
-        <!-- <h1><b>Zero-shot Segmentation for Videos</b></h1> -->
-        <img id="teaser" width="120%" src="images/zs_video_seg.png">
-        <h1>
-          <p style="font-family:Times New Roman"><b>Figure 5. Zero-shot panoptic segmentation for <a href="https://youtube-vos.org/">YouTubeVOS</a> video dataset.</b>
-        </h1>
-      </div>
-    </div>
-
-
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-4">Referring Segmentation for Videos</h2>
-        <!-- <h1><b>Referring Segmentation for Videos</b></h1> -->
-        <img id="teaser" width="120%" src="images/referring-segmentation.png">
-        <h1>
-          <p style="font-family:Times New Roman"><b>Figure 6. Zero-shot referring segmentation for <a href="https://youtube-vos.org/">YouTubeVOS</a> video dataset.</b>
-        </h1>
-      </div>
-    </div>
-
-
-    <!-- VL Tasks. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-4">Image Captioning</h2>
-        <!-- <h1><b>Image Captioning</b></h1> -->
-        <img id="teaser" width="120%" src="images/zero-shot-image-captioning-video-images.png">
-        <h1>
-          <p style="font-family:Times New Roman"><b>Figure 7. Zero-shot image captioning on YoutubeVOS video frames.</b>
-        </h1>
-      </div>
-    </div>
-    <!--/ VL Tasks. -->
-
-    
-    <!-- Region Captioning. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-4">Referring Image Captioning</h2>
-        <!-- <h1><b>Referring Image Captioning</b></h1> -->
-        <img id="teaser" width="120%" src="images/referring-captioning.png">
-        <h1>
-          <p style="font-family:Times New Roman"><b>Figure 8. Zero-shot referring image captioning on COCO 2017 val images (pink regions are referred).</b>
-        </h1>
-      </div>
-    </div>
-    <!--/ Region Captioning. -->
-
-    <!-- Region Editing. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-4">Referring Image Editing</h2>
-        <!-- <h1><b>Referring Image Editing</b></h1> -->
-        <img id="teaser" width="120%" src="images/referring-image-editing.png">
-        <h1>
-          <p style="font-family:Times New Roman"><b>Figure 9. Zero-shot referring image editing by combining X-Decoder with Stable Diffusion inpainting.</b>
-        </h1>
-      </div>
-    </div>
-    <!--/ Region Editing. -->    
-
-
-    <!-- Segmentation in the Wild. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-4">Segmentation in the Wild</h2>
-          <img id="teaser" width="100%" src="images/seginw_examples.png">          
-        <h1>
-          <p style="font-family:Times New Roman"><b>Figure 10. Ground Truth visualization of segmentation in the wild datasets from <a href="https://universe.roboflow.com/">Roboflow</a> for a wider evaluation. </b>
-        </h1>
-      </div>
-    </div>
-    <!--/ Segmentation in the Wild. -->
-
-  </div>
-</section>
 
 
 
