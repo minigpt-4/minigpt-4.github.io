@@ -8,48 +8,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Minigpt-4</title>
 
-  <style>
-      /* Set the size of the images */
-      .slideshow {
-        width: 500px;
-        height: 400px;
-        position: relative;
-        overflow: hidden;
-      }
-      /* Hide all images by default */
-      .slideshow img {
-        display: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      /* Show the first image by default */
-      .slideshow img:first-child {
-        display: block;
-      }
-      /* Style the arrow buttons */
-      .slideshow .arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 2em;
-        cursor: pointer;
-        color: white;
-        background: rgba(0, 0, 0, 0.5);
-        padding: 0.5em;
-        border-radius: 50%;
-      }
-      .slideshow .arrow.left {
-        left: 1em;
-      }
-      .slideshow .arrow.right {
-        right: 1em;
-      }
-    </style>
-
   <!-- Global site tag (gtag.js) - Google Analytics -->
  <!--  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
   <script>
@@ -63,38 +21,6 @@
 
     gtag('config', 'G-PYVRSFMDRL');
   </script> -->
-
-  <script>
-      // Set the slideshow duration
-      var slideshowDuration = 4000;
-
-      // Get all the images in the slideshow
-      var images = document.querySelectorAll('.slideshow img');
-
-      // Set the index of the current image
-      var currentImageIndex = 0;
-
-      // Display the next image in the slideshow
-      function nextImage() {
-        images[currentImageIndex].style.display = 'none';
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-        images[currentImageIndex].style.display = 'block';
-      }
-
-      // Display the previous image in the slideshow
-      function previousImage() {
-        images[currentImageIndex].style.display = 'none';
-        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-        images[currentImageIndex].style.display = 'block';
-      }
-
-      // Start the slideshow
-      setInterval(nextImage, slideshowDuration);
-
-      // Add event listeners to the arrow buttons
-      document.querySelector('.slideshow .arrow.left').addEventListener('click', previousImage);
-      document.querySelector('.slideshow .arrow.right').addEventListener('click', nextImage);
-    </script>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -114,8 +40,74 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
   </head>
-  <body>
 
+  <link rel="stylesheet" type="text/css" href="https://at.alicdn.com/t/font_1582902_u0zm91pv15i.css">
+  <style type="text/css">
+      body{
+          margin: 0;
+          padding: 0px;
+      }
+      #carousel{
+          margin: auto; /* 居中 */
+          width: 600px; /* 设置宽度 */
+          position: relative; /* 相对定位 */
+          overflow: hidden; /* 超出隐藏 */
+      }
+      #carousel img{
+          position: absolute; /* 绝对定位 使图片堆叠 */
+/*          width: 600px; /* 设定大小 按比例缩放 */*/
+          height: 2000px; /* 设定大小 按比例缩放 */
+          transition: all .6s; /* 动画 */
+          opacity: 0; /* 隐藏 */
+      }
+      .imgActive{
+          opacity: 1 !important; /* 显示图片 最高优先级 */
+      }
+
+      /* 控制按钮的样式 */
+      #leftArrow,
+      #rightArrow{
+          position: absolute;
+          left: 5px;
+          top: 43%;
+          width: 25px;
+          height: 30px;
+          background-color: #eee;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          opacity: 0.7;
+          font-size: 20px;
+          cursor: pointer;
+          z-index: 1000;
+      }
+      #rightArrow{
+          left: auto;
+          right: 5px;
+      }
+      #sliderBtn{
+          position: absolute;
+          width: 100%;
+          bottom: 0;
+          display: flex;
+          justify-content: flex-end;
+          z-index: 1000;
+      }
+      .unitBtn{
+          width: 10px;
+          height: 10px;
+          background-color: #eee;
+          border-radius: 10px;
+          margin: 10px;
+          cursor: pointer;
+      }
+      .btnActive{
+          background-color: #4C98F7;
+      }
+  </style>
+
+
+  <body>
 
 <section class="hero">
   <div class="hero-body">
@@ -409,12 +401,24 @@
 <div class="container is-max-desktop">
 
 
-<div class="slideshow">
+<!-- <div class="slideshow">
       <img src="images/bar_chart.png">
       <img src="images/xdecoder-teaser.png">
       <img src="images/x-decoder-overall.png">
       <div class="arrow left">&#8249;</div>
       <div class="arrow right">&#8250;</div>
+</div> -->
+
+<!-- 轮播图容器 -->
+<div id="carousel">
+    <img src="demos/ad_1.png">
+    <img src="demos/ad_2.png">
+    <img src="demos/cook_1.png">
+    <img src="demos/cook_2.png">
+    <!-- 按钮组 -->
+    <div id="leftArrow" class="iconfont icon-arrow-lift"></div> <!-- 左箭头切换按钮 -->        
+    <div id="rightArrow" class="iconfont icon-arrow-right"></div> <!-- 右箭头切换按钮 --> 
+    <div id="sliderBtn"></div> <!-- 切换按钮组 -->
 </div>
 
 
@@ -481,4 +485,75 @@
 
 
 </body>
+
+<script type="text/javascript">
+        var imgArr = []; // 图片数组
+        var curIndex = 0; // 当前显示图片
+        var timer = null; // 定时器
+        var btnList = []; // 右下角切换按钮组
+        
+        function slide(targetIndex = curIndex + 1){
+            curIndex = targetIndex % imgArr.length; // 获取当前index
+            imgArr.forEach((v) => v.className = "" ); // 设置其他图片隐藏
+            imgArr[curIndex] .className = "imgActive"; // 设置当前index图片显示
+            btnList.forEach(v => v.className = "unitBtn") // 设置其他按钮为灰色
+            btnList[curIndex] .className = "unitBtn btnActive"; // 设置当前按钮为蓝色
+        }
+
+        function createBtnGroup(carousel,config){
+            document.getElementById("leftArrow").addEventListener('click',(e) => { 
+                clearInterval(timer); // 清除定时器，避免手动切换时干扰
+                slide(curIndex-1); // 允许点击则切换上一张
+                timer = setInterval(() => {slide()},config.interval); // 重设定时器
+            }) 
+            document.getElementById("rightArrow").addEventListener('click',(e) => {
+                clearInterval(timer); // 清除定时器，避免手动切换时干扰
+                slide(curIndex+1); // 允许点击则切换下一张
+                timer = setInterval(() => {slide()},config.interval); // 重设定时器
+            }) 
+            var sliderBtn = document.getElementById("sliderBtn"); // 获取按钮容器的引用
+            imgArr.forEach((v,i) => {
+                let btn = document.createElement("div"); // 制作按钮
+                btn.className = i === 0 ?  "unitBtn btnActive" : "unitBtn"; // 初设蓝色与灰色按钮样式
+                btn.addEventListener('click',(e) => {
+                    clearInterval(timer); // 清除定时器，避免手动切换时干扰
+                    slide(i); // // 允许点击则切换
+                    timer = setInterval(() => {slide()},config.interval); // 重设定时器
+                }) 
+                btnList.push(btn); // 添加按钮到按钮组
+                sliderBtn.appendChild(btn); // 追加按钮到按钮容器
+            })
+        }
+
+        function eventDispose(carousel,config){
+            document.addEventListener('visibilitychange',function(){ // 浏览器切换页面会导致动画出现问题，监听页面切换
+                if(document.visibilityState=='hidden') clearInterval(timer); // 页面隐藏清除定时器
+                else timer = setInterval(() => {slide()},config.interval); // 重设定时器
+            });
+            carousel.addEventListener('mouseover',function(){ // 鼠标移动到容器则不切换动画，停止计时器
+                clearInterval(timer); // 页面隐藏清除定时器
+            });
+            carousel.addEventListener('mouseleave',function(){ // 鼠标移出容器则开始动画
+                timer = setInterval(() => {slide()},config.interval); // 重设定时器
+            });
+        }
+
+
+        (function start() {
+            var config = {
+                height: "300px", // 配置高度
+                interval: 5000 // 配置轮播时间间隔
+            }
+            var carousel = document.getElementById("carousel"); //获取容器对象的引用
+            carousel.style.height = config.height; // 将轮播容器高度设定
+            document.querySelectorAll("#carousel img").forEach((v,i) => {
+                imgArr.push(v); // 获取所有图片组成数组
+                v.className = i === 0 ?  "imgActive" : "";
+            }); 
+            eventDispose(carousel,config); // 对一些浏览器事件处理
+            createBtnGroup(carousel,config); // 按钮组的处理
+            timer = setInterval(() => {slide()},config.interval); // 设置定时器定时切换
+        })();
+    </script>
+
 </html>
