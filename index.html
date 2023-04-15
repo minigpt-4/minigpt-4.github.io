@@ -343,36 +343,22 @@
         <h2 class="title is-3">Model</h2>
         <div class="content has-text-justified">
           <p>
-            <b>Our X-Decoder is unique for three critical designs</b>:
+            <b>MiniGPT-4 consists of a vision encoder with a pretrained ViT and Q-Former, a single linear projection layer, and an advanced Vicuna large language model. MiniGPT-4 only requires training the linear layer to align the visual features with the Vicuna.</b>:
           </p>
           <ul>
-            <li>It has two types of queries (latent queries and text queries) and outputs (semantic outputs and pixel-level outputs).</li>
+            <!-- <li>It has two types of queries (latent queries and text queries) and outputs (semantic outputs and pixel-level outputs).</li>
             <li>It uses a single text encoder for all text corpus, ranging from class concepts, referring phrases to image captions.</li>
-            <li>It decouples image and text encoder to accomadate cross-image tasks (e.g., image-text retrieval) and within-image tasks (e.g., segmentation and captioning).</li>
+            <li>It decouples image and text encoder to accomadate cross-image tasks (e.g., image-text retrieval) and within-image tasks (e.g., segmentation and captioning).</li> -->
+
           </ul>
         </div>  
         <img id="model" width="80%" src="images/overview.png">
         <h3 class="subtitle has-text-centered">
-          <p style="font-family:Times New Roman"><b>Figure 2. MiniGPT-4 overall architecture.</b></p>
+          <p style="font-family:Times New Roman"><b>The architecture of MiniGPT-4.</b></p>
         </h3>   
         <br>
         <br>
-        <!-- <div class="content has-text-justified">
-          <p>
-            <b>X-Decoder can be used to unify a variety of vision and vision-language tasks</b>:
-          </p>
-          <ul>
-            <li><b>Generic Segmentation</b>: Instance, semantic and panoptic segmentation, all supporting open-vocabulary and zero-shot.</li>
-            <li><b>Referring Segmentation</b>: Refer to specific image segment given arbitary textual queries from text encoder. </li>
-            <li><b>Image-Text Retrieval</b>: Decoupled image and text representation extraction and dot-product for computing the similarities. </li>
-            <li><b>Image Captioning</b>: Decode textual tokens using exactly the same decoder in autoregressive manner.</li>
-          </ul>                    
-        </div>          
-        <img id="model" width="100%" src="images/method_2.png">
-        <h3 class="subtitle has-text-centered">
-          <p style="font-family:Times New Roman"><b>Figure 3. Unify different types of vision and vision-language tasks with a single X-Decoder.</b></p>
-        </h3>        
-        </div> -->
+
       </div>
     </div>
     <br>
@@ -454,7 +440,7 @@
   <div class="box"><div class="pic"><img src="demos/ad_1.png" alt=""></div></div>
   <div class="box"><div class="pic"><img src="demos/ad_2.png" alt=""></div></div>
   <div class="box"><div class="pic"><img src="demos/cook_2.png" alt=""></div></div>
-  <div class="box"><div class="pic"><img src="demos/describe_1.png" alt=""></div></div>
+  <div class="box"><div class="pic"><img src="demos/web_1.png" alt=""></div></div>
   <div class="box"><div class="pic"><img src="demos/describe_2.png" alt=""></div></div>
 
 
@@ -469,15 +455,15 @@
   <div class="box"><div class="pic"><img src="demos/op_1.png" alt=""></div></div>
   <div class="box"><div class="pic"><img src="demos/op_2.png" alt=""></div></div>
 
-  <div class="box"><div class="pic"><img src="demos/people_1.png" alt=""></div></div>
+  <div class="box"><div class="pic"><img src="demos/wop_1.png" alt=""></div></div>
   <div class="box"><div class="pic"><img src="demos/people_2.png" alt=""></div></div>
   <div class="box"><div class="pic"><img src="demos/rhyme_2.png" alt=""></div></div>
   <div class="box"><div class="pic"><img src="demos/story_1.png" alt=""></div></div>
   <div class="box"><div class="pic"><img src="demos/story_2.png" alt=""></div></div>
   
-  <div class="box"><div class="pic"><img src="demos/web_1.png" alt=""></div></div>
+  <div class="box"><div class="pic"><img src="demos/describe_1.png" alt=""></div></div>
   <div class="box"><div class="pic"><img src="demos/web_2.png" alt=""></div></div>
-  <div class="box"><div class="pic"><img src="demos/wop_1.png" alt=""></div></div>
+  <div class="box"><div class="pic"><img src="demos/people_1.png" alt=""></div></div>
 
 
 </div>
