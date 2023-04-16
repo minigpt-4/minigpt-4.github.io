@@ -51,10 +51,11 @@
     .box{
         float: left;
         padding: 15px 0 0 15px;
-        /*background-color: red;*/
+/*        background-color: red;*/
     }
 
     .pic{
+        width: 500px;
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 5px;
@@ -224,12 +225,10 @@
   </div>
 </section>
 
-<section class="hero teaser">
-  <iframe src="https://a092096ee7abfaaabc.gradio.live/" width="100%" height="900">
-      <p>Gradio.</p>
-      </iframe>
-</section>
 
+<iframe src="https://803c783d555532bddf.gradio.live" width="100%" height="900">
+<p>Gradio.</p>
+</iframe>
 
 
 
@@ -245,42 +244,128 @@
 </section>
  -->
 
+
+
+<!-- <link rel="stylesheet" href="js/ft-carousel.css" />
+<script src="js/jquery.min.js"></script>
+<script src="js/ft-carousel.min.js"></script>
+<script type="text/javascript">
+  $("#carousel_1").FtCarousel();
+
+  $("#carousel_2").FtCarousel({
+    index: 1,
+    auto: false
+  });
+
+  $("#carousel_3").FtCarousel({
+    index: 0,
+    auto: true,
+    time: 3000,
+    indicators: false,
+    buttons: true
+  });
+</script> -->
+
 <!-- <section class="hero teaser">
-<div id="main">
-  <div class="box"><div class="pic"><img src="demos/wop_2.png" alt=""></div></div>
-  <div class="box"><div class="pic"><img src="demos/cook_1.png" alt=""></div></div>
-  <div class="box"><div class="pic"><img src="demos/fix_1.png" alt=""></div></div>
-  <div class="box"><div class="pic"><img src="demos/rhyme_1.png" alt=""></div></div>
-</div>
-</section> -->
-
-
-<link rel="stylesheet" href="js/index.css">
-
-<section class="section">
-  <!-- <div class="container is-max-desktop"> -->
-  <div class="container is-full">
-
-    <div class="container2">
-      <div class="box_t">
-        <img src="demos/wop_2.png">
-        <!-- <span>CSS</span> -->
-      </div>
-      <div class="box_t">
-        <img src="demos/cook_1.png">
-        <!-- <span>Image</span> -->
-      </div>
-      <div class="box_t">
-        <img src="demos/fix_1.png">
-        <!-- <span>Hover</span> -->
-      </div>
-      <div class="box_t">
-        <img src="demos/rhyme_1.png">
-        <!-- <span>Effect</span> -->
+  <div class="container is-max-desktop">
+    <div class="example">
+      <div class="ft-carousel" id="carousel_1">
+        <ul class="carousel-inner"> -->
+          <!-- <li class="carousel-item"><img src="demos/wop_2.png" /></li>
+          <li class="carousel-item"><img src="demos/cook_1.png" /></li>
+          <li class="carousel-item"><img src="demos/fix_1.png" /></li>
+          <li class="carousel-item"><img src="demos/rhyme_1.png" /></li> -->
+       <!--    <li class="carousel-item"><img src="img/a1.jpg" /></li>
+      <li class="carousel-item"><img src="img/a2.jpg" /></li>
+      <li class="carousel-item"><img src="img/a3.jpg" /></li>
+      <li class="carousel-item"><img src="img/a4.jpg" /></li>
+      <li class="carousel-item"><img src="img/a5.jpg" /></li>
+      <li class="carousel-item"><img src="img/a6.jpg" /></li>
+        </ul>
       </div>
     </div>
   </div>
+</section> -->
+
+<!-- 
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <img src="demos/wop_2.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+        </h2>
+      </div>
+      <div class="item">
+        <img src="demos/cook_1.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+        </h2>
+      </div>
+      <div class="item">
+        <img src="demos/fix_1.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+       </h2>
+     </div>
+     <div class="item">
+      <img src="demos/rhyme_1.png" alt="MY ALT TEXT"/>
+      <h2 class="subtitle has-text-centered">
+      </h2>
+    </div>
+  </div>
+</div>
+</div>
 </section>
+ -->
+
+<link rel="stylesheet" type="text/css" href="js/simple_style.css" />
+<script type="text/javascript" src="js/simple_swiper.js"></script>
+
+
+<div class="app">
+  <div id="swiper-demo" class="simple-swiper-container">
+    <!-- 此处为空 -->
+    <a id="prev" class="btn btn-prev"></a>
+    <a id="next" class="btn btn-next"></a>
+    <div class="pagination"></div>
+  </div>
+</div>
+<p id="index"></p>
+
+<script type="text/javascript">
+  new SimSwiper("#swiper-demo", {
+    autoplay: 4000,
+    duration: 300,
+    easing: 'ease',
+    button: {
+      prev: "#prev", // 前进后退按钮
+      next: "#next"
+    },
+    pagination: {
+      el: '.pagination',
+      click: true// 是否可以点击
+    },
+    // 轮播图数据
+    data: [{
+      index: 0,
+      href: '#',
+      src: 'demos/wop_2.png'
+    }, {
+      index: 1,
+      href: '#',
+      src: 'demos/cook_1.png'
+    }, {
+      index: 2,
+      href: '#',
+      src: 'demos/fix_1.png'
+    }, {
+      index: 3,
+      href: '#',
+      src: 'demos/rhyme_1.png'
+    }]
+  });
+</script>
+
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -421,9 +506,8 @@
 <script src="js/Underscore-min.js"></script>
 <script src="js/index.js"></script>
 
+
 <section class="section">
-
-
 <div id="main">
   <div class="box"><div class="pic"><img src="demos/ad_1.png" alt=""></div></div>
   <div class="box"><div class="pic"><img src="demos/web_1.png" alt=""></div></div>
