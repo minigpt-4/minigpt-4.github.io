@@ -110,7 +110,7 @@ function checkWillLoadImage() {
     // 3. 求出屏幕的高度
     var screenW = document.body.clientHeight || document.documentElement.clientHeight;
 
-    var screenW = 5000
+    // var screenW = 5000
     
     // 4. 求出页面偏离浏览器的高度
     var scrollTop = scroll().top;
