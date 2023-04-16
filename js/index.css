@@ -45,12 +45,14 @@
 .container2 {
   position: center;
   display: flex;
-  width: 150%;
+  width: 100%;
   padding: 0% 0%;
-  box-sizing: border-box;
+  margin: 0 0;
+/*  box-sizing: border-box;*/
   height: 100vh;
 }
 .box_t {
+width: 500px;
   flex: 1;
   overflow: hidden;
   transition: .5s;
@@ -73,10 +75,10 @@
   line-height: 2.6;
 }
 .box_t:hover {
-  flex: 1 1 50%;
+  flex: 1 1 60%;
 }
 .box_t:hover > img {
-  width: 100%;
+  width: 150%;
   height: 100%;
 }
 /* 媒体查询 */
