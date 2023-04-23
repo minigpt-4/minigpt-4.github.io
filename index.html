@@ -164,15 +164,12 @@
                     ];
                     const randomIndex = Math.floor(Math.random() * urls.length);
                     const randomURL = urls[randomIndex];
-                    const iframe = document.getElementById('gradio');
-                    iframe.setAttribute('src', randomURL);
-                    const demoLink = document.querySelector('.external-link');
-                    demoLink.setAttribute('href', randomURL);
+                    document.getElementById('randomLink').href = randomURL;
                   });
                 </script>
               
               <span class="link-block">
-                <a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                <a id="randomLink" href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="fa fa-hand-pointer-o"></i>
                   </span>
